@@ -13,7 +13,7 @@ Set Up Steps:
 4. Run npm install on project directory in cmd
 5. Start rest API project (https://github.com/SahanaLV/Library)
 6. Run ng serve
-7. In run window (windows+r) use below command to enable cors
-   chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+7. In run window (windows+r) use below command to enable cors-->
+   (chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security)
 8. open --> http://localhost:4200/
   
