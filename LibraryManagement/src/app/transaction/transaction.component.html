@@ -1,0 +1,41 @@
+<mat-card class="example-card" >
+  <mat-card-header layout="row" layout-align="center ">
+    
+    <mat-card-title *ngIf="transaction.state=='issue'" >Issue Book</mat-card-title>
+    <mat-card-title *ngIf="transaction.state=='return'" >Return Book</mat-card-title>
+    
+  </mat-card-header>
+  
+  <mat-card-content>
+    <!--<div class="example-container">-->
+  <form novalidate #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput   [(ngModel)]="transaction.bookName" name="bookName" #bookName="ngModel" placeholder="Book Name" required>
+    <mat-error *ngIf="bookName.errors?.required" class="error">Book Name is required</mat-error>
+  </mat-form-field>
+   <mat-form-field class="example-full-width">
+    <input matInput  [(ngModel)]="transaction.authorName" name="authorName" #authorName=ngModel placeholder="Author Name" required>
+    <mat-error *ngIf="authorName.errors?.required" class="error">Author Name is required</mat-error>
+  </mat-form-field>
+   <mat-form-field class="example-full-width" >
+    <input matInput [(ngModel)]="transaction.edition" name="edition" #edition=ngModel placeholder="Edition" required>
+    <mat-error *ngIf="edition.errors?.required" class="error">Edition is required</mat-error>
+  </mat-form-field>
+   <mat-form-field class="example-full-width">
+    <input matInput   [(ngModel)]="transaction.memberName" name="memberName" #memberName="ngModel" placeholder="Member Name" required>
+    <mat-error *ngIf="memberName.errors?.required" class="error">Member Name is required</mat-error>
+  </mat-form-field>
+   <mat-form-field class="example-full-width">
+    <input matInput  [(ngModel)]="transaction.phoneNumber" name="phoneNumber" #phoneNumber=ngModel placeholder="Phone Number" required pattern="^[0-9]{10}$">
+    <mat-error *ngIf="phoneNumber.errors?.required" class="error">Phone Number is required</mat-error>
+     <mat-error *ngIf="phoneNumber.errors?.pattern" class="error">Phone Number is invalid</mat-error>
+  </mat-form-field>
+  </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="transaction.state=='issue'" mat-button [disabled]="f.invalid" (click)=addTransaction(transaction)>Issue</button>
+    <button *ngIf="transaction.state=='return'" mat-button [disabled]="f.invalid" (click)=addTransaction(transaction)>Return</button>
+    <div *ngIf="message" [ngClass] = "'success'"> {{message}} </div>
+   
+  </mat-card-actions>
+</mat-card>

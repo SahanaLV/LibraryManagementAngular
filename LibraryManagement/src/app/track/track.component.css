@@ -1,0 +1,24 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.example-card {
+    
+  width: 100%;
+  align-content: center;
+ 
+}
+.success{
+    color: green;
+    
+}
+
+
+
+.example-full-width {
+  width: 100%;
+}

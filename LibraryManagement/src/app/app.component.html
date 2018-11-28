@@ -1,0 +1,85 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+
+
+  
+    <!--<mat-toolbar color="primary">
+   <mat-toolbar-row>
+     <p><button color="secondary" mat-button (click)="sidenav.toggle()"><mat-icon>dehaze</mat-icon></button></p>
+    <span style="padding:400px;">Library Management</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">verified_user</mat-icon>
+  </mat-toolbar-row>
+ </mat-toolbar>
+ 
+  <mat-drawer-container >
+  <mat-drawer #sidenav mode="over">
+    <mat-action-list>
+      <button mat-list-item (click)="save()"> Save </button>
+      <button mat-list-item (click)="undo()"> Undo </button>
+    </mat-action-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    test
+   <router-outlet></router-outlet>
+ 
+  </mat-drawer-content>
+</mat-drawer-container>-->
+
+<div style="position:absolute; top:0; bottom:0; left:0; right: 0; display: flex; flex-direction: column;">        
+    <mat-toolbar color="primary">
+   <mat-toolbar-row>
+     <p><button color="secondary" *ngIf="localStorageItem()" mat-button (click)="sidenav.toggle()"><mat-icon>dehaze</mat-icon></button></p>
+    <span style="padding:500px;">Library Management</span>
+    <span class="example-spacer"></span>
+    <button  *ngIf="localStorageItem()" (click)=logOut()> <mat-icon>logout</mat-icon></button>
+  </mat-toolbar-row>
+ </mat-toolbar>
+
+    <mat-sidenav-container  style="flex: 1;">
+        <mat-sidenav  mode="side" opened="false" #sidenav style="width: 150px;">
+           <mat-nav-list *ngIf="localStorageItem()" >
+              <mat-list-item routerLinkActive="active">
+                
+                <a routerLink="/search"><mat-icon>search</mat-icon><span style="padding: 10px;">Search</span> </a>
+              </mat-list-item>
+              <mat-list-item routerLinkActive="active" >
+              <a routerLink="/addBook"><mat-icon>add</mat-icon><span style="padding: 10px;">Book</span> </a>
+              </mat-list-item>
+               <mat-list-item routerLinkActive="active" >
+              <a routerLink="/addMember"><mat-icon>add</mat-icon><span style="padding: 10px;">Member</span> </a>
+              </mat-list-item>
+              <mat-list-item routerLinkActive="active" >
+              <a routerLink="/trackBook"><mat-icon>art_track</mat-icon><span style="padding: 10px;">Track</span> </a>
+              </mat-list-item>
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+           
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
+<!--<div style="position:absolute;top:0;left:0;right:0;bottom:0;">
+  <md-sidenav-container #sidenav style="height:100%;width:100%;">
+    <md-sidenav mode="over" #sidenav style="min-width:220px;">
+      <p>Sidenav Content</p>
+    </md-sidenav>
+    <md-toolbar color="primary" style="min-height:64px;">
+      <span>
+          <button style="background-color:transparent;border-style:none;cursor:pointer;" (click)="sidenav.open()">
+              <i class="material-icons toolbar-link-icon" style="color:white;">menu</i>
+          </button>
+      </span>
+    <span>Fixed Header Example</span>
+    </md-toolbar>
+    <div class="inner-sidenav-content">
+      <div style="padding-top:2em;padding-bottom:2em;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </md-sidenav-container>
+</div>-->
+

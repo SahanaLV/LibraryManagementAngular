@@ -1,0 +1,37 @@
+<div class="main-div">
+<mat-card class="example-card" class="z-depth center" flex="50" >
+  <mat-card-header layout="row" layout-align="center ">
+    
+    <mat-card-title>Login</mat-card-title>
+    
+  </mat-card-header>
+  
+  <mat-card-content>
+    <!--<div class="example-container">-->
+  <form novalidate #f="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput   [(ngModel)]="member.userName" name="memberName" #memberName="ngModel" placeholder="Name" required>
+    <mat-error *ngIf="memberName.errors?.required" class="error"> Name is required</mat-error>
+  </mat-form-field>
+   <mat-form-field class="example-full-width">
+    <input matInput type=password [(ngModel)]="member.password" name="password" #password=ngModel placeholder="Password" required >
+    <mat-error *ngIf="password.errors?.required" class="error">Password is required</mat-error>
+    
+  </mat-form-field>
+  
+  
+  <!--<mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>-->
+<!--</div>-->
+</form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [disabled]="f.invalid" (click)=addMember(member)>Login</button>
+    <div *ngIf="message" [ngClass] = "'success'"> {{message}} </div>
+   
+  </mat-card-actions>
+</mat-card>
+</div>
+
