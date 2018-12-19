@@ -26,7 +26,7 @@ export class LibraryService {
   }
 
    getBooks(): Observable<Book[]>{
-     return this.http.get<Book[]>('http://localhost:8080/library/books', {headers:new HttpHeaders({
+     return this.http.get<Book[]>('library/books', {headers:new HttpHeaders({
   'Content-Type': 'application/json',
   'Authorization':'Bearer '+ localStorage.getItem('token'),
   "Access-Control-Allow-Credentials" : "true",
@@ -35,7 +35,7 @@ export class LibraryService {
    }
  
  getBooksBySearchValue(searchValue: String): Observable<Book[]>{
-     return this.http.get<Book[]>('http://localhost:8080/library/book/'+searchValue,{headers:new HttpHeaders({
+     return this.http.get<Book[]>('library/book/'+searchValue,{headers:new HttpHeaders({
   'Content-Type': 'application/json',
   'Authorization':'Bearer '+ localStorage.getItem('token'),
   "Access-Control-Allow-Credentials" : "true",
@@ -44,7 +44,7 @@ export class LibraryService {
    }
 
     addBookService(book:Book): Observable<any> {
-     return this.http.post("http://localhost:8080/library/book", book, 
+     return this.http.post("library/book", book, 
      {
   headers:new HttpHeaders({
   'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export class LibraryService {
     }
 
    addMember(member:Member): Observable<any> {
-     return this.http.post("http://localhost:8080/library/member", member, 
+     return this.http.post("library/member", member, 
      {
  headers:new HttpHeaders({
   'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export class LibraryService {
     }
 
     addTransaction(transaction:transaction): Observable<any> {
-     return this.http.post("http://localhost:8080/library/transaction", transaction, 
+     return this.http.post("library/transaction", transaction, 
      {
  headers:new HttpHeaders({
   'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ export class LibraryService {
     }
 
     trackByBook(track:any): Observable<TrackBook[]> {
-     return this.http.post<TrackBook[]>("http://localhost:8080/library/transaction/book", track, 
+     return this.http.post<TrackBook[]>("library/transaction/book", track, 
      {
  headers:new HttpHeaders({
   'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export class LibraryService {
     }
 
      trackByMember(track:any): Observable<TrackBook[]> {
-     return this.http.post<TrackBook[]>("http://localhost:8080/library/transaction/member", track, 
+     return this.http.post<TrackBook[]>("library/transaction/member", track, 
      {
 headers:new HttpHeaders({
   'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ headers:new HttpHeaders({
     }
 
     login(user:any): Observable<any> {
-     return this.http.post("http://localhost:8080/login", user, 
+     return this.http.post("login", user, 
      {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
